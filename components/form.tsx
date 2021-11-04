@@ -3,6 +3,7 @@ import { WizardState } from '../hooks/useWizard';
 import Confirmation from './confirmation';
 import Payment from './payment';
 import Shipping from './shipping';
+import styles from '../styles/Form.module.css';
 
 interface Props {
 	wizardState: WizardState,
@@ -15,8 +16,8 @@ export default function Form({ wizardState: { currentIndex, stepTitles } }: Prop
 		'confirmation': <Confirmation />,
 	};
 	const stepTitle = stepTitles[currentIndex];
-	return <div>
-		<h2>{stepTitle.title}</h2>
+	return <div className={styles.container}>
+		<h2 className={styles.caption}>{stepTitle.title}</h2>
 		{forms[stepTitle.stepId]}
 	</div>
 }
