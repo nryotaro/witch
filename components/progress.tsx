@@ -1,22 +1,22 @@
-import Step, { StepProps } from './step';
 import styles from '../styles/Progress.module.css';
+import { StepId } from '../libs/checkout';
 
 interface Props {
-	steps: StepProps[]
-	stepIndex: number;
+	stepTitles: { title: string, stepId: StepId }[],
+	currentIndex: number;
 }
 
-function renderStep({ title, stepId }: StepProps, further: boolean): JSX.Element {
-	const textStyle = further ? styles.further : styles.progress;
+function Progress({ stepTitles, currentIndex }: Props) {
+	return <ol className={styles.steps}>
+		{stepTitles.map(({title, stepId}, index: number) => renderStep(title, stepId, index <= currentIndex))}
+	</ol>
+}
+
+function renderStep(title: string, stepId: StepId, enable: boolean): JSX.Element {
+	const textStyle = enable ? styles.progress : styles.further;
 	return <li key={stepId} className={`${styles.step} ${textStyle}`}>
 		{title}
 	</li>
-}
-
-function Progress({ steps, stepIndex }: Props) {
-	return <ol className={styles.steps}>
-		{steps.map((stepProps: StepProps, index: number) => renderStep(stepProps, stepIndex < index))}
-	</ol>
 }
 
 export default Progress;

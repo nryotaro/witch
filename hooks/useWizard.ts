@@ -1,18 +1,19 @@
-import { StepProps } from "../components/step";
+import { StepId, mapStepIds } from '../libs/checkout';
 
 export interface WizardState {
-	stepProps: StepProps[],
-	stepIndex: number,
+	stepTitles: { title: string, stepId: StepId }[]
+	currentIndex: number,
 }
 
 export function useWizard(): WizardState {
-	const stepProps = [
-		{ title: 'Shipping', stepId: 'shipping' },
-		{ title: 'Payment', stepId: 'payment' },
-		{ title: 'Confirmation', stepId: 'confirmation' },
-	];
+	const titles: { [key in StepId]: string } = {
+		'shipping': 'Shipping',
+		'payment': 'Payment',
+		'confirmation': 'Confirmation',
+	};
+	const stepTitles = mapStepIds((stepId) => { return { title: titles[stepId], stepId } });
 	return {
-		stepProps,
-		stepIndex: 0,
+		stepTitles,
+		currentIndex: 0,
 	};
 }
