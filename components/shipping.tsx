@@ -1,11 +1,20 @@
 import styles from '../styles/Shipping.module.css';
+import InputText from './InputText';
+import { checkUserName } from '../libs/validation';
+
 interface Props {
+	userName: string,
+	setUsername: (userName: string) => void,
+	password: string,
+	setPassword: (password: string) => void,
 }
 
-export default function Shipping({ }: Props) {
+export default function Shipping(props: Props) {
 	return <div className={styles.container}>
-		<input className={styles.first} type='text' placeholder={'Username'} />
-		<p></p>
-		<input className={styles.first} type='password' placeholder={'Username'} />
+		<InputText value={props.userName}
+			setValue={props.setUsername}
+			placeholder={'Username'}
+			inputType={'text'}
+			validate={checkUserName}/>
 	</div>
 }
