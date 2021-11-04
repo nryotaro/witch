@@ -1,5 +1,8 @@
 ol.steps {
 	display: flex;
+	justify-content: space-between;
+	padding: 0;
+	min-width: 40rem;
 	flex-direction: row;
 	list-style: none;	
 	counter-reset: item;
@@ -7,16 +10,18 @@ ol.steps {
 
 ol.steps > li.step {
 	counter-increment: item;
-	margin-bottom: 0.5rem;
+	font-size: 1.8rem;
 }
 
 ol.steps > li.step:before {
-   margin-right: 10px;
+   margin-right: 0.8rem;
    content: counter(item);
    background: #FF8A65;
    border-radius: 100%;
    color: white;
-   width: 1.3em;
+   width: 2.0rem;
+   height: 2.0rem;
    text-align: center;
+   font-size: 1.8rem;
    display: inline-block;
 }
