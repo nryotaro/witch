@@ -2,7 +2,7 @@ import { StepProps } from "../components/step";
 
 export interface WizardState {
 	stepProps: StepProps[],
-	currentStepId: string,
+	stepIndex: number,
 }
 
 export function useWizard(): WizardState {
@@ -13,6 +13,6 @@ export function useWizard(): WizardState {
 	];
 	return {
 		stepProps,
-		currentStepId: stepProps[0].stepId,
+		stepIndex: 0,
 	};
 }
