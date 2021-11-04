@@ -1,6 +1,6 @@
 export interface StepProps {
 	title: string, 
-	index: number,
+	stepId: string,
 }
 
 function Step() {

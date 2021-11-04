@@ -1,12 +1,12 @@
-import { useWizard } from '../hooks/useWizard';
+import { useWizard, WizardState } from '../hooks/useWizard';
 import styles from '../styles/Wizard.module.css';
 import Progress from './progress';
 
 function Wizard() {
-	const wizard = useWizard();
+	const wizard: WizardState = useWizard();
 	return <div className={styles.container}>
-		<h1>Checkout</h1>
-		<Progress/>
+		<h1 className={styles.title}>Checkout</h1>
+		<Progress steps={wizard.stepProps} currentStepId={wizard.currentStepId} />
 		<div>b</div>
 	</div>
 }
