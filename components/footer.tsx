@@ -6,6 +6,7 @@ function Footer(props: FooterProps) {
 	const backStyle = isFirst ? styles.disable : '';
 	const nextStyle = isLast ? styles.signup : styles.next;
 	const invalidStyle = props.validForm ? '' : styles.invalid;
+	console.log(props);
 	return <div className={styles.container}>
 		<div className={`${styles.back} ${backStyle}`} onClick={onBack}>back</div>
 		<div className={`${nextStyle} ${invalidStyle}`} onClick={onNext} />
