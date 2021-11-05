@@ -1,4 +1,4 @@
-import styles from '../styles/Shipping.module.css';
+import styles from '../styles/Name.module.css';
 import InputText from './InputText';
 import { useId } from '../hooks/useId';
 
@@ -10,7 +10,7 @@ interface Props {
 	setPassword: (password: string) => void,
 }
 
-export default function Shipping(props: Props) {
+export default function Name(props: Props) {
 	const [nameError, passwordError] = useId(
 		props.setValidForm, props.userName, props.password);
 	return <div className={styles.container}>
