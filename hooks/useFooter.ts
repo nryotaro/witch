@@ -1,9 +1,9 @@
 import { postProfile } from '../libs/api';
-import { isLastIndex } from '../libs/checkout';
+import { isLastIndex } from '../libs/profile';
 
 export interface FooterProps {
-	userName: string,
-	password: string,
+	firstName: string,
+	lastName: string,
 	email: string,
 	currentIndex: number,
 	setCurrentIndex: (index: number) => void,
@@ -11,6 +11,7 @@ export interface FooterProps {
 }
 
 export function useFooter(props: FooterProps): [boolean, boolean, () => void, () => void] {
+	console.log(props);
 	return [
 		props.currentIndex === 0,
 		isLastIndex(props.currentIndex),

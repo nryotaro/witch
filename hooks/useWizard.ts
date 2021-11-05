@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StepId, mapStepIds } from '../libs/checkout';
+import { StepId, mapStepIds } from '../libs/profile';
 
 export interface WizardState {
 	stepTitles: { title: string, stepId: StepId }[]
@@ -7,10 +7,10 @@ export interface WizardState {
 	setCurrentIndex: (currentIndex: number) => void,
 	validForm: boolean,
 	setValidForm: (valid: boolean) => void,
-	userName: string,
-	setUserName: (userName: string) => void,
-	password: string,
-	setPassword: (password: string) => void,
+	firstName: string,
+	setFirstName: (firstName: string) => void,
+	lastName: string,
+	setLastName: (lastName: string) => void,
 	email: string,
 	setEmail: (email: string) => void,
 }
@@ -18,14 +18,14 @@ export interface WizardState {
 export function useWizard(): WizardState {
 	const titles: { [key in StepId]: string } = {
 		'name': 'Name',
-		'address': 'Address',
+		'email': 'Email',
 		'confirmation': 'Confirmation',
 	};
 
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [validForm, setValidForm] = useState(false);
-	const [userName, setUserName] = useState('');
-	const [password, setPassword] = useState('');
+	const [firstName, setFirstName] = useState('');
+	const [lastName, setLastName] = useState('');
 	const [email, setEmail] = useState('');
 
 	const stepTitles = mapStepIds(
@@ -36,10 +36,10 @@ export function useWizard(): WizardState {
 		setCurrentIndex,
 		validForm,
 		setValidForm,
-		userName,
-		setUserName,
-		password,
-		setPassword,
+		firstName,
+		setFirstName,
+		lastName,
+		setLastName,
 		email,
 		setEmail,
 	};

@@ -1,5 +1,5 @@
 import { FooterProps, useFooter } from '../hooks/useFooter';
-import styles from '../styles/Footer.module.css';
+import styles from './Footer.module.css';
 
 function Footer(props: FooterProps) {
 	const [isFirst, isLast, onBack, onNext] = useFooter(props);

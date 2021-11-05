@@ -1,5 +1,5 @@
-import styles from '../styles/Progress.module.css';
-import { StepId } from '../libs/checkout';
+import styles from './Progress.module.css';
+import { StepId } from '../libs/profile';
 
 interface Props {
 	stepTitles: { title: string, stepId: StepId }[],

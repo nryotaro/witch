@@ -1,8 +1,8 @@
 import { useWizard, WizardState } from '../hooks/useWizard';
-import styles from '../styles/Wizard.module.css';
-import Footer from './footer';
-import Form from './form';
-import Progress from './progress';
+import styles from './Wizard.module.css';
+import Footer from './Footer';
+import Form from './Form';
+import Progress from './Porgress';
 
 
 function Wizard() {

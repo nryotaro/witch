@@ -1,4 +1,4 @@
-import styles from '../styles/InputText.module.css';
+import styles from './InputText.module.css';
 interface Props {
 	value: string,
 	setValue: (value: string) => void,
