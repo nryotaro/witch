@@ -11,6 +11,7 @@
 	font-size: 1.8rem;
     color: #1dbdcb;
 	cursor: pointer;
+	margin-right: 2rem;
 }
 .disable {
 	display: none;
@@ -28,7 +29,7 @@
 	color: #ffffff;
 	cursor: pointer;
 	font-size: 1.8rem;
-	border: 1px solid #1dbdcb;
+	border: 1px solid var(--primary-color);
 	background: #1dbdcb;
 	border-radius: .75rem;
 	padding: 0.75rem 1rem;
