@@ -20,8 +20,8 @@
 	content: 'Next'
 }
 
-.signup:after {
-	content: 'Sign up'
+.submit:after {
+	content: 'Submit'
 }
 
 .proceed {

@@ -1,5 +1,7 @@
+import { useRouter } from 'next/dist/client/router';
+import { useReducer } from 'react';
 import { postProfile } from '../libs/api';
-import { isLastIndex } from '../libs/profile';
+import { isLastIndex, submitProfile } from '../libs/profile';
 
 export interface FooterProps {
 	firstName: string,
@@ -11,7 +13,7 @@ export interface FooterProps {
 }
 
 export function useFooter(props: FooterProps): [boolean, boolean, () => void, () => void] {
-	console.log(props);
+	const router = useRouter();
 	return [
 		props.currentIndex === 0,
 		isLastIndex(props.currentIndex),
@@ -22,12 +24,18 @@ export function useFooter(props: FooterProps): [boolean, boolean, () => void, ()
 		() => {
 			if (!props.validForm)
 				return;
-			if(isLastIndex(props.currentIndex)) {
+			if (isLastIndex(props.currentIndex)) {
+				const { firstName, lastName, email } = props;
+				submitProfile(firstName, lastName, email, postProfile,
+					() => { 
+						router.reload(); 
+					}
+				);
 				postProfile;
 			} else {
 				props.setCurrentIndex(props.currentIndex + 1);
 			}
-			
+
 		},
 	];
 }
