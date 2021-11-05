@@ -4,6 +4,9 @@ import { StepId, mapStepIds } from '../libs/checkout';
 export interface WizardState {
 	stepTitles: { title: string, stepId: StepId }[]
 	currentIndex: number,
+	setCurrentIndex: (currentIndex: number) => void,
+	validForm: boolean,
+	setValidForm: (valid: boolean) => void,
 	userName: string,
 	setUserName: (userName: string) => void,
 	password: string,
@@ -19,6 +22,8 @@ export function useWizard(): WizardState {
 		'confirmation': 'Confirmation',
 	};
 
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const [validForm, setValidForm] = useState(false);
 	const [userName, setUserName] = useState('');
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
@@ -27,7 +32,10 @@ export function useWizard(): WizardState {
 		(stepId) => { return { title: titles[stepId], stepId } });
 	return {
 		stepTitles,
-		currentIndex: 0,
+		currentIndex,
+		setCurrentIndex,
+		validForm,
+		setValidForm,
 		userName,
 		setUserName,
 		password,

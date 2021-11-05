@@ -10,8 +10,8 @@ function Wizard() {
 	return <div className={styles.container}>
 		<h1 className={styles.title}>Checkout</h1>
 		<Progress stepTitles={wizard.stepTitles} currentIndex={wizard.currentIndex} />
-		<Form wizardState={wizard}/>
-		<Footer/>
+		<Form wizardState={wizard} />
+		<Footer {...wizard}/>
 	</div>
 }
 

@@ -9,6 +9,12 @@ export function mapStepIds<T>(stepIdHandler: (stepId: StepId, index: number) => 
 	return stepOrders.map(stepIdHandler);
 }
 
+export function isLastIndex(index: number): boolean {
+	return index === stepOrders.length;
+}
+
 const stepOrders: StepId[] = [ShippingStepId, PaymentStepId, ConfirmationStepId];
+
+
 
 
