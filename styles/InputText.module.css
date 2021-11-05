@@ -1,9 +1,22 @@
+.container {
+}
 .input {
+	min-width: 100%;
 	font-size: 1.8rem;
 	border: 0;
 	border-bottom: 1px solid black;
 }
 .input:focus {
 	outline: none;
-	border-bottom: 1px solid black;
+}
+.invalid .input {
+	border-bottom: 1px solid #d00e17;
+}
+
+.errorMessage {
+	min-height: 1.2rem;
+	color: #d00e17;
+}
+.valid .errorMessage {
+	visibility: hidden;	
 }
