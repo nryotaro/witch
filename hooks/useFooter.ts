@@ -1,3 +1,4 @@
+import { postProfile } from '../libs/api';
 import { isLastIndex } from '../libs/checkout';
 
 export interface FooterProps {
@@ -18,8 +19,14 @@ export function useFooter(props: FooterProps): [boolean, boolean, () => void, ()
 				props.setCurrentIndex(props.currentIndex - 1);
 		},
 		() => {
-			if (props.validForm && !isLastIndex(props.currentIndex))
+			if (!props.validForm)
+				return;
+			if(isLastIndex(props.currentIndex)) {
+				postProfile;
+			} else {
 				props.setCurrentIndex(props.currentIndex + 1);
+			}
+			
 		},
 	];
 }
