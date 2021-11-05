@@ -1,7 +1,7 @@
 import { StepId } from '../libs/checkout';
 import { WizardState } from '../hooks/useWizard';
 import Confirmation from './confirmation';
-import Payment from './payment';
+import Address from './Address';
 import Shipping from './shipping';
 import styles from '../styles/Form.module.css';
 
@@ -12,8 +12,8 @@ interface Props {
 export default function Form({ wizardState }: Props) {
 	const forms: { [key in StepId]: JSX.Element } = {
 		'shipping': <Shipping {...wizardState} />,
-		'payment': <Payment />,
-		'confirmation': <Confirmation />,
+		'address': <Address {...wizardState} />,
+		'confirmation': <Confirmation {...wizardState} />,
 	};
 	const stepTitle = wizardState.stepTitles[wizardState.currentIndex];
 	return <div className={styles.container}>

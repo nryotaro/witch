@@ -1,4 +1,4 @@
-import { isLastIndex } from "../libs/checkout";
+import { isLastIndex } from '../libs/checkout';
 
 export interface FooterProps {
 	userName: string,

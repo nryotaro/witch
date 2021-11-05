@@ -18,7 +18,7 @@ export interface WizardState {
 export function useWizard(): WizardState {
 	const titles: { [key in StepId]: string } = {
 		'shipping': 'Shipping',
-		'payment': 'Payment',
+		'address': 'Address',
 		'confirmation': 'Confirmation',
 	};
 
