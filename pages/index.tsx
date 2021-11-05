@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Layout from '../components/layout';
-import Wizard from '../components/wizard';
+import Wizard from '../components/Wizard';
 
 const Index: NextPage = () => {
 	return <Layout>

@@ -11,7 +11,7 @@ interface Props {
 
 export default function Form({ wizardState }: Props) {
 	const forms: { [key in StepId]: JSX.Element } = {
-		'shipping': <Shipping {...wizardState} />,
+		'name': <Shipping {...wizardState} />,
 		'address': <Address {...wizardState} />,
 		'confirmation': <Confirmation {...wizardState} />,
 	};
