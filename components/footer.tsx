@@ -3,7 +3,7 @@ import styles from '../styles/Footer.module.css';
 
 function Footer(props: FooterProps) {
 	const [isFirst, isLast, onBack, onNext] = useFooter(props);
-	const backStyle = isFirst ? '' : styles.invalid;
+	const backStyle = isFirst ? styles.disable : '';
 	const nextStyle = isLast ? styles.signup : styles.next;
 	const invalidStyle = props.validForm ? '' : styles.invalid;
 	return <div className={styles.container}>

@@ -1,4 +1,3 @@
-import { setUncaughtExceptionCaptureCallback } from "process";
 import { isLastIndex } from "../libs/checkout";
 
 export interface FooterProps {

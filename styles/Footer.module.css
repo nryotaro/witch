@@ -1,3 +1,31 @@
 .container {
+	display: flex;
+	justify-content: right;
+}
 
+.back {
+	border: 1px solid #1dbdcb;
+	background: rgba(29,189,203,.2);
+	border-radius: .75rem;
+	padding: 0.75rem 1rem;
+	font-size: 1.8rem;
+    color: #1dbdcb;
+	cursor: pointer;
+}
+.disable {
+	display: none;
+}
+
+.next:after {
+	content: 'Next'
+}
+
+.next {
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 1.8rem;
+	border: 1px solid #1dbdcb;
+	background: #1dbdcb;
+	border-radius: .75rem;
+	padding: 0.75rem 1rem;
 }
