@@ -1,6 +1,6 @@
 import styles from '../styles/Shipping.module.css';
 import InputText from './InputText';
-import { checkUserName } from '../libs/validation';
+import { useId } from '../hooks/useId';
 
 interface Props {
 	userName: string,
@@ -10,11 +10,18 @@ interface Props {
 }
 
 export default function Shipping(props: Props) {
+	const [nameError, passwordError] = useId(
+		props.userName, props.password);
 	return <div className={styles.container}>
 		<InputText value={props.userName}
 			setValue={props.setUsername}
 			placeholder={'Username'}
 			inputType={'text'}
-			validate={checkUserName}/>
+			errorMessage={nameError} />
+		<InputText value={props.password}
+			setValue={props.setPassword}
+			placeholder={'Password'}
+			inputType={'password'}
+			errorMessage={passwordError} />
 	</div>
 }

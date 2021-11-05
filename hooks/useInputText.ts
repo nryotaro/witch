@@ -17,7 +17,7 @@ function createOnChange(
 	}
 }
 
-export function useInputText(errorMessage?: string) {
+export function useInputText(setText: (text: string) => void, errorMessage?: string) {
 	const [errorVisibility, setErrorVisibility] = useState(false);
 	return [errorMessageVisibility, createOnChange()];
 }
