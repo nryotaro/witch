@@ -9,7 +9,7 @@ interface Props {
 function Progress({ stepTitles, currentIndex }: Props) {
 	return <ol className={styles.steps}>
 		{stepTitles.map(
-			({title, stepId}, index: number) => renderStep(title, stepId, index <= currentIndex))}
+			({ title, stepId }, index: number) => renderStep(title, stepId, index <= currentIndex))}
 	</ol>
 }
 
