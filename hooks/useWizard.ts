@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { StepId, mapStepIds } from '../libs/profile';
+import { OrderSteps, orderSteps, } from '../libs/profile';
 
 export interface WizardState {
-	stepTitles: StepTitle[],
 	currentIndex: number,
 	setCurrentIndex: (currentIndex: number) => void,
 	validForm: boolean,
@@ -15,28 +14,15 @@ export interface WizardState {
 	setEmail: (email: string) => void,
 }
 
-export interface StepTitle {
-	title: string,
-	stepId: StepId,
-}
 
-export function useWizard(): WizardState {
+export function useWizard(): [WizardState, OrderSteps] {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [validForm, setValidForm] = useState(false);
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [email, setEmail] = useState('');
 
-	const titles: { [key in StepId]: string } = {
-		'name': 'Name',
-		'email': 'Email',
-		'confirmation': 'Confirmation',
-	};
-
-	const stepTitles = mapStepIds(
-		(stepId) => { return { title: titles[stepId], stepId } });
-	return {
-		stepTitles,
+	return [{
 		currentIndex,
 		setCurrentIndex,
 		validForm,
@@ -47,5 +33,6 @@ export function useWizard(): WizardState {
 		setLastName,
 		email,
 		setEmail,
-	};
+	}, orderSteps,
+	];
 }

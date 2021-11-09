@@ -11,13 +11,12 @@ export interface UserProfile {
 	email: string,
 }
 
-
 export type StepId = typeof nameStepId | typeof emailStepId | typeof confirmationStepId;
-const stepOrders: StepId[] = [emailStepId, nameStepId, confirmationStepId];
+const stepOrders: StepId[] = [nameStepId, emailStepId, confirmationStepId];
 
-export function mapStepIds<T>(stepIdHandler: (stepId: StepId, index: number) => T): T[] {
-	return stepOrders.map(stepIdHandler);
-}
+export type OrderSteps = <T>(stepIdHandler: (stepId: StepId, index: number) => T) => T[];
+export const orderSteps: OrderSteps =
+	<T>(stepIdHandler: (stepId: StepId, index: number) => T) => stepOrders.map(stepIdHandler);
 
 export function isLastIndex(index: number): boolean {
 	return index === stepOrders.length - 1;
