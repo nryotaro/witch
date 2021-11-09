@@ -5,11 +5,13 @@ interface Props {
 	setValidForm: (valid: boolean) => void,
 	email: string,
 	setEmail: (email: string) => void,
+	confirmEmail: string,
+	setConfirmEmail: (email: string) => void,
 }
 
 export default function Email(props: Props) {
-	const [confirmEmail, setConfirmEmail, emailError, confirmEmailError] =
-		useEmail(props.setValidForm, props.email);
+	const [emailError, confirmEmailError] =
+		useEmail(props.setValidForm, props.email, props.confirmEmail);
 
 	return <div>
 		<InputText text={props.email}
@@ -17,8 +19,8 @@ export default function Email(props: Props) {
 			placeholder={'Email'}
 			inputType={'email'}
 			errorMessage={emailError} />
-		<InputText text={confirmEmail}
-			setText={setConfirmEmail}
+		<InputText text={props.confirmEmail}
+			setText={props.setConfirmEmail}
 			placeholder={'Confirm email'}
 			inputType={'email'}
 			errorMessage={confirmEmailError} />

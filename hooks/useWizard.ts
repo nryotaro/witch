@@ -12,6 +12,8 @@ export interface WizardState {
 	setLastName: (lastName: string) => void,
 	email: string,
 	setEmail: (email: string) => void,
+	confirmEmail: string,
+	setConfirmEmail: (email: string) => void,
 }
 
 export function useWizard(): [WizardState, OrderSteps] {
@@ -20,6 +22,7 @@ export function useWizard(): [WizardState, OrderSteps] {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [email, setEmail] = useState('');
+	const [confirmEmail, setConfirmEmail] = useState(email);
 
 	return [{
 		currentIndex,
@@ -32,5 +35,7 @@ export function useWizard(): [WizardState, OrderSteps] {
 		setLastName,
 		email,
 		setEmail,
+		confirmEmail,
+		setConfirmEmail,
 	}, orderSteps];
 }

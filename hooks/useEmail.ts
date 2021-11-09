@@ -3,9 +3,8 @@ import { checkConfirmEmail, checkEmail } from '../libs/profile';
 
 
 export default function useEmail(
-	setValidForm: (valid: boolean) => void, email: string):
-	[string, (email: string) => void, string | null, string | null] {
-	const [confirmEmail, setConfirmEmail] = useState(email);
+	setValidForm: (valid: boolean) => void, email: string, confirmEmail: string):
+	[string | null,  string | null] {
 	const emailError = checkEmail(email);
 	const confirmEmailError = checkConfirmEmail(email, confirmEmail);
 
@@ -13,5 +12,5 @@ export default function useEmail(
 		setValidForm(emailError === null && confirmEmailError === null);
 	}, [emailError, confirmEmailError]);
 
-	return [confirmEmail, setConfirmEmail, emailError, confirmEmailError];
+	return [emailError, confirmEmailError];
 }
