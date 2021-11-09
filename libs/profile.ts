@@ -11,6 +11,7 @@ export interface UserProfile {
 	email: string,
 }
 
+
 export type StepId = typeof nameStepId | typeof emailStepId | typeof confirmationStepId;
 const stepOrders: StepId[] = [emailStepId, nameStepId, confirmationStepId];
 

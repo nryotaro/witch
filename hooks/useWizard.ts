@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StepId, mapStepIds } from '../libs/profile';
 
 export interface WizardState {
-	stepTitles: { title: string, stepId: StepId }[],
+	stepTitles: StepTitle[],
 	currentIndex: number,
 	setCurrentIndex: (currentIndex: number) => void,
 	validForm: boolean,
@@ -13,6 +13,11 @@ export interface WizardState {
 	setLastName: (lastName: string) => void,
 	email: string,
 	setEmail: (email: string) => void,
+}
+
+export interface StepTitle {
+	title: string,
+	stepId: StepId,
 }
 
 export function useWizard(): WizardState {
