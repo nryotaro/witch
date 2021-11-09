@@ -1,5 +1,3 @@
-export type Validator<T> = (value: T) => true | string;
-
 export function isNotEmpty(value: string): boolean {
 	return 0 < value.length;
 }
