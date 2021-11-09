@@ -1,15 +1,16 @@
 import {
 	isNotEmpty, isEqualOrGreaterThan, isValidEmail, compositeValidators
 } from './validation';
-const nameStepId = 'name';
-const emailStepId = 'email';
-const confirmationStepId = 'confirmation';
 
 export interface UserProfile {
 	firstName: string,
 	lastName: string,
 	email: string,
 }
+
+const nameStepId = 'name';
+const emailStepId = 'email';
+const confirmationStepId = 'confirmation';
 
 export type StepId = typeof nameStepId | typeof emailStepId | typeof confirmationStepId;
 const stepOrders: StepId[] = [nameStepId, emailStepId, confirmationStepId];

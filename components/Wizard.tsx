@@ -1,12 +1,11 @@
-import { useWizard, WizardState } from '../hooks/useWizard';
 import { StepId, OrderSteps } from '../libs/profile';
 import Confirmation from './Confirmation';
 import Email from './Email';
 import Footer from './Footer';
 import Name from './Name';
 import Progress from './Porgress';
+import { useWizard, WizardState } from '../hooks/useWizard';
 import styles from './Wizard.module.css';
-
 
 export default function Wizard() {
 	const [wizard, orderStepIds]: [WizardState, OrderSteps] = useWizard();

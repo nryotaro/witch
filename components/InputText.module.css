@@ -1,21 +1,23 @@
 .container {
+	--color-error: #d00e17;
 }
 .input {
 	min-width: 100%;
 	font-size: 1.8rem;
 	border: 0;
+	padding: 0;
 	border-bottom: 1px solid black;
 }
 .input:focus {
 	outline: none;
 }
 .invalid .input {
-	border-bottom: 1px solid #d00e17;
+	border-bottom: 1px solid var(--color-error);
 }
 
 .errorMessage {
 	min-height: 1.2rem;
-	color: #d00e17;
+	color: var(--color-error);
 }
 .valid .errorMessage {
 	visibility: hidden;	

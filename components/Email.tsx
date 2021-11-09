@@ -1,5 +1,4 @@
 import useEmail from '../hooks/useEmail';
-import styles from './Email.module.css';
 import InputText from './InputText';
 
 interface Props {
@@ -12,7 +11,7 @@ export default function Email(props: Props) {
 	const [confirmEmail, setConfirmEmail, emailError, confirmEmailError] =
 		useEmail(props.setValidForm, props.email);
 
-	return <div className={styles.container}>
+	return <div>
 		<InputText text={props.email}
 			setText={props.setEmail}
 			placeholder={'Email'}

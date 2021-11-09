@@ -6,7 +6,7 @@ interface Props {
 	currentIndex: number;
 }
 
-function Progress({ stepTitles, currentIndex }: Props) {
+export default function Progress({ stepTitles, currentIndex }: Props) {
 	return <ol className={styles.steps}>
 		{stepTitles.map(({ title, stepId }, index: number) =>
 			renderStep(title, stepId, index <= currentIndex))}
@@ -19,5 +19,3 @@ function renderStep(title: string, stepId: StepId, enable: boolean): JSX.Element
 		{title}
 	</li>
 }
-
-export default Progress;

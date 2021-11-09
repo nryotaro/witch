@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { OrderSteps, orderSteps, } from '../libs/profile';
+import { OrderSteps, orderSteps } from '../libs/profile';
 
 export interface WizardState {
 	currentIndex: number,
@@ -13,7 +13,6 @@ export interface WizardState {
 	email: string,
 	setEmail: (email: string) => void,
 }
-
 
 export function useWizard(): [WizardState, OrderSteps] {
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,6 +32,5 @@ export function useWizard(): [WizardState, OrderSteps] {
 		setLastName,
 		email,
 		setEmail,
-	}, orderSteps,
-	];
+	}, orderSteps];
 }
