@@ -1,4 +1,6 @@
-import { Validator, compositeValidator, isNotEmpty, isEqualOrGreaterThan, isValidateEmail } from './validation';
+import {
+	Validator, compositeValidator, isNotEmpty, isEqualOrGreaterThan, isValidateEmail
+} from './validation';
 const nameStepId = 'name';
 const emailStepId = 'email';
 const confirmationStepId = 'confirmation';
@@ -10,6 +12,7 @@ export interface UserProfile {
 }
 
 export type StepId = typeof nameStepId | typeof emailStepId | typeof confirmationStepId;
+const stepOrders: StepId[] = [emailStepId, nameStepId, confirmationStepId];
 
 export function mapStepIds<T>(stepIdHandler: (stepId: StepId, index: number) => T): T[] {
 	return stepOrders.map(stepIdHandler);
@@ -18,9 +21,6 @@ export function mapStepIds<T>(stepIdHandler: (stepId: StepId, index: number) => 
 export function isLastIndex(index: number): boolean {
 	return index === stepOrders.length - 1;
 }
-
-const stepOrders: StepId[] = [nameStepId, emailStepId, confirmationStepId];
-
 
 export const checkName: Validator<string> = compositeValidator(
 	[(value: string) => { return isNotEmpty(value) ? true : 'This field is required.' },

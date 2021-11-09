@@ -1,11 +1,10 @@
 import { useWizard, WizardState } from '../hooks/useWizard';
-import styles from './Wizard.module.css';
 import Footer from './Footer';
 import Form from './Form';
 import Progress from './Porgress';
+import styles from './Wizard.module.css';
 
-
-function Wizard() {
+export default function Wizard() {
 	const wizard: WizardState = useWizard();
 	return <div className={styles.container}>
 		<h1 className={styles.title}>Wizard</h1>
@@ -14,5 +13,3 @@ function Wizard() {
 		<Footer {...wizard}/>
 	</div>
 }
-
-export default Wizard;

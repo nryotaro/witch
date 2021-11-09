@@ -1,5 +1,4 @@
 import { useRouter } from 'next/dist/client/router';
-import { useReducer } from 'react';
 import { postProfile } from '../libs/api';
 import { isLastIndex, submitProfile } from '../libs/profile';
 
