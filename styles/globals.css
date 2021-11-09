@@ -1,6 +1,7 @@
 :root {
-  --primary-color: #1dbdcb;
-  --disable-color: #666;
+  --color-primary: #1dbdcb;
+  --color-primary-background: #1dbdcb33;
+  --color-disabled: #666;
 }
 
 html {
