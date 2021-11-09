@@ -13,13 +13,13 @@ export default function Email(props: Props) {
 		useEmail(props.setValidForm, props.email);
 
 	return <div className={styles.container}>
-		<InputText value={props.email}
-			setValue={props.setEmail}
+		<InputText text={props.email}
+			setText={props.setEmail}
 			placeholder={'Email'}
 			inputType={'email'}
 			errorMessage={emailError} />
-		<InputText value={confirmEmail}
-			setValue={setConfirmEmail}
+		<InputText text={confirmEmail}
+			setText={setConfirmEmail}
 			placeholder={'Confirm email'}
 			inputType={'email'}
 			errorMessage={confirmEmailError} />

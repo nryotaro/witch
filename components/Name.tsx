@@ -14,14 +14,15 @@ export default function Name(
 	{setValidForm, firstName, setFirstName, lastName, setLastName}: Props) {
 	const [firstNameError, lastNameError] = useName(
 		setValidForm, firstName, lastName);
+
 	return <div className={styles.container}>
-		<InputText value={firstName}
-			setValue={setFirstName}
+		<InputText text={firstName}
+			setText={setFirstName}
 			placeholder={'First Name'}
 			inputType={'text'}
 			errorMessage={firstNameError} />
-		<InputText value={lastName}
-			setValue={setLastName}
+		<InputText text={lastName}
+			setText={setLastName}
 			placeholder={'Last Name'}
 			inputType={'text'}
 			errorMessage={lastNameError} />

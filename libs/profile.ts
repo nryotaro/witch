@@ -1,5 +1,5 @@
 import {
-	Validator, compositeValidator, isNotEmpty, isEqualOrGreaterThan, isValidateEmail
+	isNotEmpty, isEqualOrGreaterThan, isValidEmail, compositeValidators
 } from './validation';
 const nameStepId = 'name';
 const emailStepId = 'email';
@@ -22,24 +22,26 @@ export function isLastIndex(index: number): boolean {
 	return index === stepOrders.length - 1;
 }
 
-export const checkName: Validator<string> = compositeValidator(
-	[(value: string) => { return isNotEmpty(value) ? true : 'This field is required.' },
-	(value: string) => {
-		const min = 2;
-		return isEqualOrGreaterThan(value, min) ? true : `Minimum ${min} characters is required.`
-	}]);
+export function checkName(name: string): null | string {
+	const threshold = 2;
+	return compositeValidators([
+		[isNotEmpty, 'This field is required.'],
+		[(text: string) => isEqualOrGreaterThan(text, threshold), `Minimum ${threshold} characters is required.`]])
+		(name);
+}
 
-export const checkEmail: Validator<string> = compositeValidator(
-	[(value: string) => { return isNotEmpty(value) ? true : 'This field is required' },
-	(value: string) => { return isValidateEmail(value) ? true : 'Please enter a valid email address.' }]
-);
+export function checkEmail(email: string): null | string {
+	return compositeValidators([
+		[isNotEmpty, 'This field is required.'],
+		[isValidEmail, 'Please enter a valid email address.'],
+	])(email);
+}
 
-export function checkConfirmEmail(email: string): Validator<string> {
-	return (confirmEmail: string) => {
-		if (!isNotEmpty(confirmEmail))
-			return 'This feild is required.';
-		return email === confirmEmail ? true : `Your emails don't match.`;
-	}
+export function checkConfirmEmail(email: string, confirmEmail: string): null | string {
+	return compositeValidators([
+		[isNotEmpty, 'This feild is required.'],
+		[(confirm: string) => { return email === confirm }, `Your emails don't match.`]
+	])(confirmEmail);
 }
 
 export async function submitProfile(
