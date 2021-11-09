@@ -14,21 +14,21 @@ ol.steps > li.step {
 }
 
 ol.steps > li.step.further {
-	color: #666
+	color: var(--color-disabled);
 }
 ol.steps > li.step.further:before {
-   background: #666;
+   background: var(--color-disabled); 
 }
 
 ol.steps > li.step.progress:before {
-	background: #1dbdcb;
+	background: var(--color-primary);
 }
 
 ol.steps > li.step:before {
    margin-right: 0.8rem;
    content: counter(item);
    border-radius: 100%;
-   color: white;
+   color: #ffffff;
    width: 2.0rem;
    height: 2.0rem;
    text-align: center;
