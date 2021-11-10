@@ -7,8 +7,10 @@ function Footer(props: FooterProps) {
 	const nextStyle = isLast ? styles.submit : styles.next;
 	const invalidStyle = props.validForm ? '' : styles.invalid;
 	return <div className={styles.container}>
-		<div className={`${styles.back} ${backStyle}`} onClick={onBack}>back</div>
-		<div className={`${nextStyle} ${invalidStyle} ${styles.proceed}`} onClick={onNext} />
+		<div className={`${styles.back} ${backStyle} ${styles.button}`}
+			onClick={onBack}>back</div>
+		<div className={`${nextStyle} ${invalidStyle} ${styles.proceed} ${styles.button}`}
+			onClick={onNext} />
 	</div>
 }
 

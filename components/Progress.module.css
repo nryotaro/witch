@@ -6,11 +6,12 @@ ol.steps {
 	flex-direction: row;
 	list-style: none;	
 	counter-reset: item;
+	--text-size: 1.8rem
 }
 
 ol.steps > li.step {
 	counter-increment: item;
-	font-size: 1.8rem;
+	font-size: var(--text-size);
 }
 
 ol.steps > li.step.further {
@@ -32,6 +33,6 @@ ol.steps > li.step:before {
    width: 2.0rem;
    height: 2.0rem;
    text-align: center;
-   font-size: 1.8rem;
+   font-size: var(--text-size);
    display: inline-block;
 }
